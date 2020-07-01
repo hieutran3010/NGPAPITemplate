@@ -1,17 +1,17 @@
-namespace Beke.AdminService
+using Api.Data;
+using Api.Data.MiddleLayers;
+using Api.GraphQL.Schema;
+using EFPostgresEngagement.Abstract;
+using EFPostgresEngagement.Extensions;
+using GraphQLDoorNet.Extensions;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+
+namespace Api.GraphQL
 {
-    using Microsoft.AspNetCore.Builder;
-    using Microsoft.AspNetCore.Hosting;
-    using Microsoft.Extensions.Configuration;
-    using Microsoft.Extensions.DependencyInjection;
-    using Microsoft.Extensions.Hosting;
-    using EFPostgresEngagement.Extensions;
-    using EFPostgresEngagement.Abstract;
-    using GraphQLDoorNet.Extensions;
-    using Data;
-    using Data.MiddleLayers;
-    using Schema;
-    
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -27,7 +27,7 @@ namespace Beke.AdminService
             services.AddControllers();
             
             services
-                .UsePostgresSql<BekeAdminDbContext>(this.Configuration)
+                .UsePostgresSql<MyDbContext>(this.Configuration)
                 .AddTransient<GraphQLDoorNet.Abstracts.IUnitOfWork, UnitOfWork>();
             services.AddScoped<IDbTracker>(provider => new ApplicationUserProvider());
             
@@ -50,7 +50,7 @@ namespace Beke.AdminService
                 app.UseDeveloperExceptionPage();
             }
             
-            app.UpdateDatabase<BekeAdminDbContext>();
+            app.UpdateDatabase<MyDbContext>();
 
             app.UseHttpsRedirection();
 

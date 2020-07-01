@@ -1,6 +1,6 @@
 using EFPostgresEngagement.Abstract;
 
-namespace Beke.AdminService
+namespace Api.GraphQL
 {
     public class ApplicationUserProvider: IDbTracker
     {

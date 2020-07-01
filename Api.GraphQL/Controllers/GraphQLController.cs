@@ -1,9 +1,9 @@
-﻿namespace Beke.AdminService.Controllers
-{
-    using System.Threading.Tasks;
-    using GraphQLDoorNet.Abstracts;
-    using Microsoft.AspNetCore.Mvc;
+﻿using System.Threading.Tasks;
+using GraphQLDoorNet.Abstracts;
+using Microsoft.AspNetCore.Mvc;
 
+namespace Api.GraphQL.Controllers
+{
     [Route("api/graphql")]
     [ApiController]
     public class GraphQLController : ControllerBase

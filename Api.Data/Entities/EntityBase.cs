@@ -1,4 +1,4 @@
-namespace Beke.AdminService.Data.Entities
+namespace Api.Data.Entities
 {
     using IEntityBase = GraphQLDoorNet.Abstracts.IEntityBase;
     using EFPostgresEngagement;

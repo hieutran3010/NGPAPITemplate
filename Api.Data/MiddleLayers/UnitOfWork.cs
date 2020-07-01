@@ -1,4 +1,4 @@
-namespace Beke.AdminService.Data.MiddleLayers
+namespace Api.Data.MiddleLayers
 {
     using System.Threading;
     using System.Threading.Tasks;
@@ -6,9 +6,9 @@ namespace Beke.AdminService.Data.MiddleLayers
 
     public class UnitOfWork : IUnitOfWork
     {
-        private readonly BekeAdminDbContext _dbContext;
+        private readonly MyDbContext _dbContext;
 
-        public UnitOfWork(BekeAdminDbContext dbContext)
+        public UnitOfWork(MyDbContext dbContext)
         {
             this._dbContext = dbContext;
         }
